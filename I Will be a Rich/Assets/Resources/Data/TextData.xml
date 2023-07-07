@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTextData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <TextData ID="1" kor="NoName" eng="NoName" />
-  <TextData ID="10000" kor="부자가 될 거야!" eng="I Will be a Rich!" />
+  <TextData ID="10000" kor="부자가 될 거야!" eng="I Will be Rich!" />
   <TextData ID="10001" kor="게임시작" eng="START" />
+  <TextData ID="20000" kor="안녕하세요! 못 보던 분이시네요?" eng="Hello nYou haven't seen me before?" />
+  <TextData ID="20001" kor="통장을 개설하러 오셨군요?" eng="Are you here to open an account?" />
+  <TextData ID="20002" kor="아주 잘 하셨어요! 통장은 돈을 모으는 첫걸음이죠." eng="You did a great job nA bankbook is the first step in raising money." />
+  <TextData ID="20003" kor="차근차근 돈을 모으는 재미를 느껴보세요!" eng="Enjoy raising money step by step!" />
+  <TextData ID="20004" kor="우선… 신분증을 주시겠어요?" eng="First of all... Can I have your ID?" />
 </ArrayOfTextData>

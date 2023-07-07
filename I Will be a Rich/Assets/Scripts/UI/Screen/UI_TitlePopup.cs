@@ -45,9 +45,23 @@ public class UI_TitlePopup : UI_Popup
     void OnClickStartButton()
     {
         Debug.Log("OnClickStartButton");
-        //TODO : BGM 시작
+        //TODO : SFX
 
         //TODO : 데이터 확인
+        if (Managers.Game.LoadGame())
+        {
+            Managers.UI.ClosePopupUI(this);
+            Managers.UI.ShowPopupUI<UI_JoinNewUser>();
+            //Managers.UI.ShowPopupUI<UI_PlayPopup>(); <- 추후 만들고 해제
+        }
+        else
+        {
+            Managers.Game.Init();
+            Managers.Game.SaveGame();
+
+            Managers.UI.ClosePopupUI(this);
+            Managers.UI.ShowPopupUI<UI_JoinNewUser>();
+        }
 
     }
 }
