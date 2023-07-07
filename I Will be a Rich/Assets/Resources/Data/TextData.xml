@@ -3,9 +3,16 @@
   <TextData ID="1" kor="NoName" eng="NoName" />
   <TextData ID="10000" kor="부자가 될 거야!" eng="I Will be Rich!" />
   <TextData ID="10001" kor="게임시작" eng="START" />
-  <TextData ID="20000" kor="안녕하세요! 못 보던 분이시네요?" eng="Hello nYou haven't seen me before?" />
+  <TextData ID="20000" kor="안녕하세요!&lt;br&gt; 못 보던 분이시네요?" eng="Hello nYou haven't seen me before?" />
   <TextData ID="20001" kor="통장을 개설하러 오셨군요?" eng="Are you here to open an account?" />
-  <TextData ID="20002" kor="아주 잘 하셨어요! 통장은 돈을 모으는 첫걸음이죠." eng="You did a great job nA bankbook is the first step in raising money." />
+  <TextData ID="20002" kor="아주 잘 하셨어요!&lt;br&gt; 통장은 돈을 모으는 첫걸음이죠." eng="You did a great job nA bankbook is the first step in raising money." />
   <TextData ID="20003" kor="차근차근 돈을 모으는 재미를 느껴보세요!" eng="Enjoy raising money step by step!" />
   <TextData ID="20004" kor="우선… 신분증을 주시겠어요?" eng="First of all... Can I have your ID?" />
+  <TextData ID="200" kor="{USERNAME}이 당신의 이름인가요?" eng="Is {USERNAME} your name?" />
+  <TextData ID="201" kor="&quot;사용할 수 없는 이름입니다. 2글자 이상 8자 이하" eng=" 영어 또는 숫자 또는 한글로 구성해주세요.&quot;" />
+  <TextData ID="300" kor="네" eng="Sure" />
+  <TextData ID="301" kor="다시 작성하기" eng="Okay" />
+  <TextData ID="30000" kor="제출하기" eng="Submit" />
+  <TextData ID="30001" kor="이름을 작성해주세요" eng="Please write your name" />
+  <TextData ID="30002" kor="당신의 이름은 무엇인가요?" eng="What's your name?" />
 </ArrayOfTextData>

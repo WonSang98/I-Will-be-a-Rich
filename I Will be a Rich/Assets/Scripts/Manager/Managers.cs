@@ -27,10 +27,9 @@ public class Managers : MonoBehaviour
     {
         if (Managers.Data.Texts.TryGetValue(id, out TextData value) == false)
             return "";
-
         //TODO : 지역별 출력 변경
         //USER LANGUAGE에 따라서...
-        return value.kor;
+        return value.kor.Replace("{userName}", Managers.Game.Name);
     }
 
     private static void Init()

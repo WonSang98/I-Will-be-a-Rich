@@ -45,7 +45,6 @@ public class UI_JoinNewUser : UI_Popup
         _onTextEndCallback += ClearCoroutine;
         
 
-
         return true;
     }
 
@@ -61,10 +60,10 @@ public class UI_JoinNewUser : UI_Popup
             {
                 //다음 씬 전환
                 Debug.Log("End Join New User");
+                Managers.UI.ClosePopupUI(this);
+                Managers.UI.ShowPopupUI<UI_InputNamePopup>();
             }
         }
-
-
     }
 
     void ShowText()

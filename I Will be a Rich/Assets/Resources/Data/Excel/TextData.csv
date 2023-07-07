@@ -7,4 +7,10 @@
 20002,아주 잘 하셨어요!<br> 통장은 돈을 모으는 첫걸음이죠.,You did a great job nA bankbook is the first step in raising money.
 20003,차근차근 돈을 모으는 재미를 느껴보세요!,Enjoy raising money step by step!
 20004,우선… 신분증을 주시겠어요?,First of all... Can I have your ID?
-,,
+200,그게 당신의 이름인가요?,Is {USERNAME} your name?
+201,"사용할 수 없는 이름입니다. 2글자 이상 8자 이하, 영어 또는 숫자 또는 한글로 구성해주세요.","The name cannot be used. Please consist of 2 to 8 characters, English, numbers, or Korean."
+300,네,Sure
+301,다시 작성하기,Okay
+30000,제출하기,Submit
+30001,이름을 작성해주세요,Please write your name
+30002,당신의 이름은 무엇인가요?,What's your name?
