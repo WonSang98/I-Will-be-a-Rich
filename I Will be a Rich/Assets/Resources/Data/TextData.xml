@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTextData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TextData ID="1" kor="NoName" eng="NoName" />
+  <TextData ID="10000" kor="부자가 될 거야!" eng="I Will be a Rich!" />
+  <TextData ID="10001" kor="게임시작" eng="START" />
+</ArrayOfTextData>

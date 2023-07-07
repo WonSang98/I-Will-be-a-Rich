@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameScene : UI_Base
+public class GameScene : BaseScene
 {
-	public override bool Init()
+	protected override bool Init()
 	{
 		if (base.Init() == false)
 			return false;
 
-		Managers.UI.SetCanvas(gameObject, false);
+		SceneType = Define.Scene.Game;
+		Managers.UI.ShowPopupUI<UI_TitlePopup>();
+		Debug.Log("GameScene Init");
 		return true;
 	}
 }

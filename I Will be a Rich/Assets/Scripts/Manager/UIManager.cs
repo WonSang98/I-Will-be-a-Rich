@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
 		if (string.IsNullOrEmpty(name))
 			name = typeof(T).Name;
 
-		GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}");
+		GameObject go = Managers.Resource.Instantiate($"Screen/{name}");
 		T sceneUI = Utils.GetOrAddComponent<T>(go);
 		SceneUI = sceneUI;
 
