@@ -26,6 +26,8 @@ public class Define
         Effect,
     }
 
+    public const int MAX_LOTTO_COUNT = 10;
+    public const int MAX_UPGRADE_COUNT = 4;
 
 
 

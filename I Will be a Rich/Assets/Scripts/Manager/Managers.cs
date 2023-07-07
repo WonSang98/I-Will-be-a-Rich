@@ -11,11 +11,13 @@ public class Managers : MonoBehaviour
     private static ResourceManager s_resourceManager = new ResourceManager();
     private static UIManager s_uiManager = new UIManager();
     private static DataManager s_dataManager = new DataManager();
+    private static GameManagerEx s_gameManagerEx = new GameManagerEx();
 
     //가져오기
     public static ResourceManager Resource { get { Init(); return s_resourceManager; } }
     public static UIManager UI { get { Init(); return s_uiManager; } }
     public static DataManager Data { get { Init(); return s_dataManager; } }
+    public static GameManagerEx Game { get { Init(); return s_gameManagerEx; } }
     private void Start()
     {
         Init();
