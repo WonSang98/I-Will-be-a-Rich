@@ -55,5 +55,13 @@ public class Define
     public const float START_SECOND_PER_CHAR = 0.05f;
     #endregion
 
+    #region STAT ÄÚµå
+    public const int WORK = 10000;
+    public const int UPGRADE00 = 30000;
+    public const int UPGRADE01 = 30001;
+    public const int UPGRADE02 = 30002;
+    public const int UPGRADE03 = 30003;
+
+    #endregion
 
 }
