@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_WorkItem : UI_Popup
+public class UI_WorkItem : UI_Base
 {
     enum Texts
     {
@@ -16,7 +16,7 @@ public class UI_WorkItem : UI_Popup
 
     enum Buttons
     {
-        Upgrade_Button
+        Upgrade_Button,
     }
 
     public int _needUpgradeCost { get; private set; }
@@ -26,6 +26,8 @@ public class UI_WorkItem : UI_Popup
     {
         if (base.Init() == false)
             return false;
+
+        Debug.Log("WorkItem Init");
 
         BindText(typeof(Texts));
         BindButton(typeof(Buttons));
@@ -66,14 +68,14 @@ public class UI_WorkItem : UI_Popup
 
     void GetWorkUpgradeCost()
     {
-        if (Managers.Data.Stats.TryGetValue(Define.WORK, out StatData value) == false) return;
+        if (Managers.Data.Stats.TryGetValue((int)Define.StatType.work + 1, out StatData value) == false) return;
 
-        _needUpgradeCost =  value.price * (int)Mathf.Pow(value.increasePrice, Managers.Game.WorkAbility+1);
+        _needUpgradeCost =  value.price * (int)Mathf.Pow(value.increasePrice, Managers.Game.WorkAbility);
     }
 
     void GetWorkValue()
     {
-        if (Managers.Data.Stats.TryGetValue(Define.WORK, out StatData value) == false) return;
+        if (Managers.Data.Stats.TryGetValue((int)Define.StatType.work + 1, out StatData value) == false) return;
 
         if(value.increaseValue == 1)
         {

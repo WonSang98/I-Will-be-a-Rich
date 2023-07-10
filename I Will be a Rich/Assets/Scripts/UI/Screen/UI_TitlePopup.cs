@@ -51,8 +51,7 @@ public class UI_TitlePopup : UI_Popup
         if (Managers.Game.LoadGame())
         {
             Managers.UI.ClosePopupUI(this);
-            Managers.UI.ShowPopupUI<UI_JoinNewUser>();
-            //Managers.UI.ShowPopupUI<UI_PlayPopup>(); <- 추후 만들고 해제
+            Managers.UI.ShowPopupUI<UI_PlayPopup>();
         }
         else
         {

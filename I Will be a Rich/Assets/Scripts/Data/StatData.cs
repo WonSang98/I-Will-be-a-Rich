@@ -20,7 +20,7 @@ public class StatData
     [XmlAttribute]
     public int value;
     [XmlAttribute]
-    public int increaseValue;
+    public float increaseValue;
     [XmlAttribute]
     public int maxLevel;
 }

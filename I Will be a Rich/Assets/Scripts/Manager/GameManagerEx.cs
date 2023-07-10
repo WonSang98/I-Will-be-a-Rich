@@ -17,7 +17,9 @@ public class GameData
 
 	public int WorkAbility; // 화면 터치
 	public int[] LottoAbilities = new int[Define.MAX_LOTTO_COUNT];
-	public int[] Upgrades = new int[Define.MAX_UPGRADE_COUNT];
+	public float[] LottoCoolTimes = new float[Define.MAX_LOTTO_COUNT];
+	public float[,] LottoProbability = new float[Define.MAX_LOTTO_COUNT, Define.LOTTO_PRIZE_COUNT];
+    public int[] Upgrades = new int[Define.MAX_UPGRADE_COUNT];
 	public PlayerState Player;
 
 	public int Money;
@@ -53,6 +55,18 @@ public class GameManagerEx : MonoBehaviour
     {
 		get { return _gameData.LottoAbilities; }
 		set { _gameData.LottoAbilities = value; }
+    }
+
+	public float[] LottoCoolTimes
+	{
+		get { return _gameData.LottoCoolTimes; }
+		set { _gameData.LottoCoolTimes = value; }
+	}
+
+	public float[,] LottoProbability
+    {
+		get { return _gameData.LottoProbability; }
+        set { _gameData.LottoProbability = value; }
     }
 
 	public int[] Upgrades

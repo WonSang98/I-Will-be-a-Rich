@@ -34,7 +34,7 @@ public class LottoData
 [Serializable, XmlRoot("ArrayOfStatData")]
 public class LottoDataLoader : ILoader<int, LottoData>
 {
-    [XmlElement("StatData")]
+    [XmlElement("LottoData")]
     public List<LottoData> _lottoData = new List<LottoData>();
 
     public Dictionary<int, LottoData> MakeDic()

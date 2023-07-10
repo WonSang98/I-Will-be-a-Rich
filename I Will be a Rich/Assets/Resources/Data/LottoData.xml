@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStatData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LottoData ID="1" type="lotto00" nameID="20000" price="5" coolTime="5" max="5" prize1="300" prize2="111111111" prize3="11111111" prize4="1111111" prize5="11111" />
+  <LottoData ID="2" type="lotto01" nameID="20001" price="50" coolTime="50" max="10" prize1="300" prize2="222222222" prize3="22222222" prize4="2222222" prize5="22222" />
+  <LottoData ID="3" type="lotto02" nameID="20002" price="500" coolTime="500" max="20" prize1="300" prize2="333333333" prize3="33333333" prize4="3333333" prize5="33333" />
+  <LottoData ID="4" type="lotto03" nameID="20003" price="5000" coolTime="5000" max="40" prize1="300" prize2="444444444" prize3="44444444" prize4="4444444" prize5="44444" />
+  <LottoData ID="5" type="lotto04" nameID="20004" price="50000" coolTime="50000" max="80" prize1="300" prize2="555555555" prize3="55555555" prize4="5555555" prize5="55555" />
+  <LottoData ID="6" type="lotto05" nameID="20005" price="500000" coolTime="500000" max="150" prize1="300" prize2="666666666" prize3="66666666" prize4="6666666" prize5="66666" />
+  <LottoData ID="7" type="lotto06" nameID="20006" price="5000000" coolTime="5000000" max="220" prize1="300" prize2="777777777" prize3="77777777" prize4="7777777" prize5="77777" />
+  <LottoData ID="8" type="lotto07" nameID="20007" price="50000000" coolTime="5E+07" max="300" prize1="300" prize2="888888888" prize3="88888888" prize4="8888888" prize5="88888" />
+</ArrayOfStatData>

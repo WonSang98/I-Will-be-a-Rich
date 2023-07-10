@@ -7,7 +7,7 @@
 20002,아주 잘 하셨어요!<br> 통장은 돈을 모으는 첫걸음이죠.,You did a great job nA bankbook is the first step in raising money.
 20003,차근차근 돈을 모으는 재미를 느껴보세요!,Enjoy raising money step by step!
 20004,우선… 신분증을 주시겠어요?,First of all... Can I have your ID?
-200,그게 당신의 이름인가요?,Is {USERNAME} your name?
+200,그게 당신의 이름인가요?,Is your name?
 201,"사용할 수 없는 이름입니다. 2글자 이상 8자 이하, 영어 또는 숫자 또는 한글로 구성해주세요.","The name cannot be used. Please consist of 2 to 8 characters, English, numbers, or Korean."
 300,네,Sure
 301,다시 작성하기,Okay
@@ -17,3 +17,22 @@
 1000,일,Work
 1001,화면을 클릭 시 얻는 금액이 증가합니다.,The amount you get when you click on the screen increases.
 1002,업그레이드 : 레벨,UPGRADE : LV
+2000,복권1,Lotto1
+2010,복권2,Lotto2
+2020,복권3,Lotto3
+2030,복권4,Lotto4
+2040,복권5,Lotto5
+2050,복권6,Lotto6
+2060,복권7,Lotto7
+2070,복권8,Lotto8
+2001,복권설명1,LD 1
+2011,복권설명2,LD 2
+2021,복권설명3,LD 3
+2031,복권설명4,LD 4
+2041,복권설명5,LD 5
+2051,복권설명6,LD 6
+2061,복권설명7,LD 7
+2071,복권설명8,LD 8
+2100,구매<br>(꾹 눌러 10개씩 구매),BUY<br>(Press Buy Per 10)
+40000,{userName} 계좌,{userName}'s Account
+40001,잔고,BALANCE

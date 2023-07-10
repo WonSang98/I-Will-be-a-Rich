@@ -30,7 +30,8 @@ public abstract class UI_Base : MonoBehaviour
 	{
 		string[] names = Enum.GetNames(type);
 		UnityEngine.Object[] objects = new UnityEngine.Object[names.Length];
-		_objects.Add(typeof(T), objects);
+        Debug.Log("바인드 할 오브젝트 이름들  "+ objects);
+        _objects.Add(typeof(T), objects);
 
 		for (int i = 0; i < names.Length; i++)
 		{

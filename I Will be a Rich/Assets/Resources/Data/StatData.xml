@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStatData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StatData ID="1" type="work" nameID="10000" price="100" increasePrice="2" value="10" increaseValue="1.1" maxLevel="1000" />
+  <StatData ID="2" type="upgrade00" nameID="30000" price="200000" increasePrice="2" value="1" increaseValue="0.1" maxLevel="100" />
+  <StatData ID="3" type="upgrade01" nameID="30001" price="200000" increasePrice="2" value="1" increaseValue="0.1" maxLevel="100" />
+  <StatData ID="4" type="upgrade02" nameID="30002" price="200000" increasePrice="2" value="1" increaseValue="0.1" maxLevel="100" />
+  <StatData ID="5" type="upgrade03" nameID="30003" price="200000" increasePrice="2" value="1" increaseValue="0.1" maxLevel="100" />
+</ArrayOfStatData>

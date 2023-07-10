@@ -28,7 +28,7 @@ public class Define
 
     public enum StatType
     {
-        touch,
+        work,
         upgrade00,
         upgrade01,
         upgrade02,
@@ -46,9 +46,12 @@ public class Define
         lotto06,
         lotto07
     }
+
+    
     #region 플레이요소 개수
     public const int MAX_LOTTO_COUNT = 10;
     public const int MAX_UPGRADE_COUNT = 4;
+    public const int LOTTO_PRIZE_COUNT = 6;
     #endregion
 
     #region 대화
@@ -61,7 +64,10 @@ public class Define
     public const int UPGRADE01 = 30001;
     public const int UPGRADE02 = 30002;
     public const int UPGRADE03 = 30003;
+    #endregion
 
+    #region LOTTO
+    public const int LOTTO_DEFAULT_CODE = 20000;
     #endregion
 
 }

@@ -75,6 +75,7 @@ public class UI_InputNamePopup : UI_Popup
     {
         Managers.Game.Name = _inputField.text;
         Managers.UI.ClosePopupUI(this);
+        Managers.UI.ShowPopupUI<UI_PlayPopup>();
         //Play Popup ¶ç¿ì±â
     }
 }
