@@ -25,6 +25,15 @@ public class Define
         Bgm,
         Effect,
     }
+
+    public enum StatType
+    {
+        touch,
+        upgrade00,
+        upgrade01,
+        upgrade02,
+        upgrade03
+    }
     #region 플레이요소 개수
     public const int MAX_LOTTO_COUNT = 10;
     public const int MAX_UPGRADE_COUNT = 4;
