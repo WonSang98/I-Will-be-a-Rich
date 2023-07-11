@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,8 +25,10 @@ public class UI_LottoItem : UI_Base
         Progress_Image,
     }
 
-    public Define.LottoType type; //어떤 로또인지
+    Define.LottoType _type; //어떤 로또인지
     int _cost;
+    float _cool;
+    LottoData _lottodata;
 
     public override bool Init()
     {
@@ -34,11 +37,22 @@ public class UI_LottoItem : UI_Base
             return false;
         }
 
+        
+
+
+        return true;
+    }
+
+    public void SetInfo(int type)
+    {
+        _type = (Define.LottoType)type;
+
         //UI_BASE에 enum 이름으로 object 찾아서 바인딩
 
-        if(Managers.Data.Lottos.TryGetValue((int)type+1, out LottoData lottodata))
+        if (Managers.Data.Lottos.TryGetValue((int)_type + 1, out _lottodata))
         {
-            _cost = lottodata.price;
+            _cost = _lottodata.price;
+            _cool = _lottodata.coolTime;
         }
         else
         {
@@ -51,33 +65,32 @@ public class UI_LottoItem : UI_Base
         BindImage(typeof(Images));
 
         GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(OnClickBuyButton);
-        GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(OnPressBuyButton, Define.UIEvent.Pressed);
+        //GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(OnPressBuyButton, Define.UIEvent.Pressed);
         GetButton((int)Buttons.Description_Button).gameObject.BindEvent(OnClickDescriptionButton);
 
-        GetText((int)Texts.Title_Text).text = Managers.GetText(2000 + (int)type);
-        GetText((int)Texts.Description_Text).text = Managers.GetText(2001 + ((int)type) * 10);
+        GetText((int)Texts.Title_Text).text = Managers.GetText(2000 + ((int)_type) * 10);
+        GetText((int)Texts.Description_Text).text = Managers.GetText(2001 + ((int)_type) * 10);
         GetText((int)Texts.Buy_Text).text = Managers.GetText(2100);
-        GetText((int)Texts.Count_Text).text = Managers.Game.LottoCounts[(int)type].ToString();
-        GetText((int)Texts.Time_Text).text = TimeTransfer(Managers.Game.LottoCoolTimes[(int)type]);
+        GetText((int)Texts.Count_Text).text = Managers.Game.LottoCounts[(int)_type].ToString();
+        GetText((int)Texts.Time_Text).text = TimeTransfer(Managers.Game.LottoCoolTimes[(int)_type]);
 
 
-        GetImage((int)Images.Progress_Image).fillAmount = Managers.Game.LottoCoolTimes[(int)type];
-
-
-        return true;
+        GetImage((int)Images.Progress_Image).fillAmount = Managers.Game.LottoCoolTimes[(int)_type];
     }
 
     void OnClickBuyButton()
     {
         if(Managers.Game.Money >= _cost)
         {
-            Debug.Log($"Buy Lotto{(int)type}");
+            Debug.Log($"Buy Lotto{(int)_type}");
             Managers.Game.Money -= _cost;
-            Managers.Game.LottoCounts[(int)type] += 1;
+            Managers.Game.LottoCounts[(int)_type] += 1;
+            RefreshCount();
+            RefreshTime();
         }
         else
         {
-            Debug.Log($"Failed Buy Lotto{(int)type}");
+            Debug.Log($"Failed Buy Lotto{(int)_type}");
         }
     }
 
@@ -85,13 +98,13 @@ public class UI_LottoItem : UI_Base
     {
         if (Managers.Game.Money >= _cost * 10)
         {
-            Debug.Log($"Buy Lotto{(int)type}");
+            Debug.Log($"Buy Lotto{(int)_type}");
             Managers.Game.Money -= _cost * 10;
-            Managers.Game.LottoCounts[(int)type] += 10;
+            Managers.Game.LottoCounts[(int)_type] += 10;
         }
         else
         {
-            Debug.Log($"Failed Buy Press Lotto{(int)type}");
+            Debug.Log($"Failed Buy Press Lotto{(int)_type}");
         }
     }
 
@@ -116,6 +129,17 @@ public class UI_LottoItem : UI_Base
         {
             return $"{min}M {sec}S";
         }
+    }
+
+    public void RefreshTime()
+    {
+        GetImage((int)Images.Progress_Image).fillAmount = Managers.Game.LottoCoolTimes[(int)_type] / _cool;
+        GetText((int)Texts.Time_Text).text = TimeTransfer(Managers.Game.LottoCoolTimes[(int)_type]);
+    }
+
+    public void RefreshCount()
+    {
+        GetText((int)Texts.Count_Text).text = Managers.Game.LottoCounts[(int)_type].ToString();
     }
 
 }

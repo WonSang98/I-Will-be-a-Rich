@@ -68,6 +68,11 @@ public class Define
 
     #region LOTTO
     public const int LOTTO_DEFAULT_CODE = 20000;
+    public const int PRIZE1 = 8145060;//8145060;
+    public const int PRIZE2 = 7145060;//8145053;
+    public const int PRIZE3 = 5145060;//8144825;
+    public const int PRIZE4 = 1145060;//8133713;
+    public const int PRIZE5 = 145060; //7952712;
     #endregion
 
 }

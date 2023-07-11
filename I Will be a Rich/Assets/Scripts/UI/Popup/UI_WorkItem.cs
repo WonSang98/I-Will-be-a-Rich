@@ -12,6 +12,7 @@ public class UI_WorkItem : UI_Base
         Level_Text,
         Cost_Text,
         Value_Text,
+        NowValue_Text,
     }
 
     enum Buttons
@@ -21,7 +22,21 @@ public class UI_WorkItem : UI_Base
 
     public int _needUpgradeCost { get; private set; }
     public int _nowValue { get; private set; }
+    public int _nextValue { get; private set; }
 
+    StatData _workdata;
+
+    public void Awake()
+    {
+        if (Managers.Data.Stats.TryGetValue((int)Define.StatType.work + 1, out _workdata))
+        {
+            Debug.Log("Success Load StatData" + gameObject.name);
+        }
+        else
+        {
+            Debug.Log("Failed Load StatData" + gameObject.name);
+        }
+    }
     public override bool Init()
     {
         if (base.Init() == false)
@@ -34,6 +49,7 @@ public class UI_WorkItem : UI_Base
 
         GetWorkUpgradeCost();
         GetWorkValue();
+        GetNextValue();
 
         GetButton((int)Buttons.Upgrade_Button).gameObject.BindEvent(OnClickUpgradeButton);
 
@@ -41,8 +57,8 @@ public class UI_WorkItem : UI_Base
         GetText((int)Texts.Description_Text).text = Managers.GetText(1001);
         GetText((int)Texts.Level_Text).text = Managers.GetText(1002) + Managers.Game.WorkAbility;
         GetText((int)Texts.Cost_Text).text = _needUpgradeCost.ToString();
-        GetText((int)Texts.Value_Text).text = _nowValue.ToString();
-
+        GetText((int)Texts.Value_Text).text = _nextValue.ToString();
+        GetText((int)Texts.NowValue_Text).text = _nowValue.ToString() + Managers.GetText(1003);
 
         return true;
     }
@@ -56,8 +72,11 @@ public class UI_WorkItem : UI_Base
             Managers.Game.WorkAbility += 1;
             GetWorkUpgradeCost();
             GetWorkValue();
+            GetNextValue();
             GetText((int)Texts.Cost_Text).text = _needUpgradeCost.ToString();
             GetText((int)Texts.Value_Text).text = _nowValue.ToString();
+            GetText((int)Texts.Level_Text).text = Managers.GetText(1002) + Managers.Game.WorkAbility;
+            GetText((int)Texts.Value_Text).text = _nextValue.ToString();
         }
         else
         {
@@ -68,24 +87,25 @@ public class UI_WorkItem : UI_Base
 
     void GetWorkUpgradeCost()
     {
-        if (Managers.Data.Stats.TryGetValue((int)Define.StatType.work + 1, out StatData value) == false) return;
-
-        _needUpgradeCost =  value.price * (int)Mathf.Pow(value.increasePrice, Managers.Game.WorkAbility);
+        _needUpgradeCost = (int)(_workdata.price * Mathf.Pow(_workdata.increasePrice, Managers.Game.WorkAbility + 1));
     }
 
     void GetWorkValue()
     {
-        if (Managers.Data.Stats.TryGetValue((int)Define.StatType.work + 1, out StatData value) == false) return;
 
-        if(value.increaseValue == 1)
+        if(_workdata.increaseValue == 1)
         {
-            _nowValue = value.value * Managers.Game.WorkAbility;
+            _nowValue = _workdata.value * Managers.Game.WorkAbility;
         }
-        else if(value.increaseValue > 1)
+        else if(_workdata.increaseValue > 1)
         {
-            _nowValue = value.value * (int)Mathf.Pow(value.increaseValue, Managers.Game.WorkAbility + 1);
+            _nowValue = (int)(_workdata.value * Mathf.Pow(_workdata.increaseValue, Managers.Game.WorkAbility + 1));
         }
     }
 
+    void GetNextValue()
+    {
+        _nextValue = (int)(_nowValue * _workdata.increaseValue);
+    }
 
 }

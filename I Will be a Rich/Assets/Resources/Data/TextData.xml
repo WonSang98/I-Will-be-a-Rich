@@ -18,6 +18,7 @@
   <TextData ID="1000" kor="일" eng="Work" />
   <TextData ID="1001" kor="화면을 클릭 시 얻는 금액이 증가합니다." eng="The amount you get when you click on the screen increases." />
   <TextData ID="1002" kor="업그레이드 : 레벨" eng="UPGRADE : LV" />
+  <TextData ID="1003" kor="클릭당" eng="per/click" />
   <TextData ID="2000" kor="복권1" eng="Lotto1" />
   <TextData ID="2010" kor="복권2" eng="Lotto2" />
   <TextData ID="2020" kor="복권3" eng="Lotto3" />

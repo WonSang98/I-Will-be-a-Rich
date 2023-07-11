@@ -3,6 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct LogInfo
+{
+    public string _where;
+    public int _earn;
+
+    public LogInfo(string where, int earn)
+    {
+        _where = where;
+        _earn = earn;
+    }
+}
 public class UI_Log : UI_Scene
 {
     enum Texts
@@ -17,7 +28,7 @@ public class UI_Log : UI_Scene
     }
 
     Action _earningAction;
-    Queue<int> _earningQueue = new Queue<int>();
+    Queue<LogInfo> _earningQueue = new Queue<LogInfo>();
 
     public override bool Init()
     {
@@ -36,7 +47,6 @@ public class UI_Log : UI_Scene
     {
         for(int i=0; i<=(int)Texts.Log06_Text; i++)
         {
-            _earningQueue.Enqueue(0);
             GetText(i).text = "";
         }
     }
@@ -44,16 +54,15 @@ public class UI_Log : UI_Scene
     void LogRefresh()
     {
         int idx = 0;
-        foreach(int earn in _earningQueue)
+        foreach(LogInfo earn in _earningQueue)
         {
-            GetText(idx++).text = $"+ {earn}";
+            GetText(idx++).text = $"{earn._where} +{earn._earn}";
         }
     }
 
-    public void InterNewLog(int newData)
+    public void InterNewLog(LogInfo newData)
     {
-        int tmp;
-        _earningQueue.TryDequeue(out tmp);
+        if(_earningQueue.Count > (int)Texts.Log06_Text+1) _earningQueue.TryDequeue(out LogInfo tmp);
         _earningQueue.Enqueue(newData);
         _earningAction?.Invoke();
     }
