@@ -25,6 +25,7 @@ public class UI_WorkItem : UI_Base
     public int _nextValue { get; private set; }
 
     StatData _workdata;
+    Action _actionUpgrade;
 
     public void Awake()
     {
@@ -44,6 +45,9 @@ public class UI_WorkItem : UI_Base
 
         Debug.Log("WorkItem Init");
 
+        _actionUpgrade -= OnClickUpgradeButton;
+        _actionUpgrade += OnClickUpgradeButton;
+
         BindText(typeof(Texts));
         BindButton(typeof(Buttons));
 
@@ -51,7 +55,7 @@ public class UI_WorkItem : UI_Base
         GetWorkValue();
         GetNextValue();
 
-        GetButton((int)Buttons.Upgrade_Button).gameObject.BindEvent(OnClickUpgradeButton);
+        GetButton((int)Buttons.Upgrade_Button).gameObject.BindEvent(()=>Utils.BuyItem(_needUpgradeCost, _actionUpgrade));
 
         GetText((int)Texts.Title_Text).text = Managers.GetText(1000);
         GetText((int)Texts.Description_Text).text = Managers.GetText(1001);
@@ -65,23 +69,14 @@ public class UI_WorkItem : UI_Base
 
     void OnClickUpgradeButton()
     {
-        //소지 금액 체크
-        if(Managers.Game.Money >= _needUpgradeCost)
-        {
-            Managers.Game.Money -= _needUpgradeCost;
-            Managers.Game.WorkAbility += 1;
-            GetWorkUpgradeCost();
-            GetWorkValue();
-            GetNextValue();
-            GetText((int)Texts.Cost_Text).text = _needUpgradeCost.ToString();
-            GetText((int)Texts.Value_Text).text = _nowValue.ToString();
-            GetText((int)Texts.Level_Text).text = Managers.GetText(1002) + Managers.Game.WorkAbility;
-            GetText((int)Texts.Value_Text).text = _nextValue.ToString();
-        }
-        else
-        {
-            Debug.Log("소지 금액 부족!");
-        }
+        Managers.Game.WorkAbility += 1;
+        GetWorkUpgradeCost();
+        GetWorkValue();
+        GetNextValue();
+        GetText((int)Texts.Cost_Text).text = _needUpgradeCost.ToString();
+        GetText((int)Texts.Value_Text).text = _nowValue.ToString();
+        GetText((int)Texts.Level_Text).text = Managers.GetText(1002) + Managers.Game.WorkAbility;
+        GetText((int)Texts.Value_Text).text = _nextValue.ToString();
 
     }
 

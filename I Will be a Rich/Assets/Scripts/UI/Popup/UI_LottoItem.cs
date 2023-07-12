@@ -30,15 +30,13 @@ public class UI_LottoItem : UI_Base
     float _cool;
     LottoData _lottodata;
 
+    Action _actionBuy;
     public override bool Init()
     {
         if(base.Init() == false)
         {
             return false;
         }
-
-        
-
 
         return true;
     }
@@ -59,13 +57,14 @@ public class UI_LottoItem : UI_Base
             Debug.Log("Failed Load Lotto Data!");
         }
 
+        _actionBuy -= OnClickBuyButton;
+        _actionBuy += OnClickBuyButton;
 
         BindText(typeof(Texts));
         BindButton(typeof(Buttons));
         BindImage(typeof(Images));
 
-        GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(OnClickBuyButton);
-        //GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(OnPressBuyButton, Define.UIEvent.Pressed);
+        GetButton((int)Buttons.Buy_Button).gameObject.BindEvent(() => Utils.BuyItem(_cost, _actionBuy));
         GetButton((int)Buttons.Description_Button).gameObject.BindEvent(OnClickDescriptionButton);
 
         GetText((int)Texts.Title_Text).text = Managers.GetText(2000 + ((int)_type) * 10);
@@ -80,34 +79,11 @@ public class UI_LottoItem : UI_Base
 
     void OnClickBuyButton()
     {
-        if(Managers.Game.Money >= _cost)
-        {
-            Debug.Log($"Buy Lotto{(int)_type}");
-            Managers.Game.Money -= _cost;
-            Managers.Game.LottoCounts[(int)_type] += 1;
-            RefreshCount();
-            RefreshTime();
-        }
-        else
-        {
-            Debug.Log($"Failed Buy Lotto{(int)_type}");
-        }
+        Debug.Log($"Buy Lotto{(int)_type}");
+        Managers.Game.LottoCounts[(int)_type] += 1;
+        RefreshCount();
+        RefreshTime();
     }
-
-    void OnPressBuyButton()
-    {
-        if (Managers.Game.Money >= _cost * 10)
-        {
-            Debug.Log($"Buy Lotto{(int)_type}");
-            Managers.Game.Money -= _cost * 10;
-            Managers.Game.LottoCounts[(int)_type] += 10;
-        }
-        else
-        {
-            Debug.Log($"Failed Buy Press Lotto{(int)_type}");
-        }
-    }
-
     void OnClickDescriptionButton()
     {
         //TODO

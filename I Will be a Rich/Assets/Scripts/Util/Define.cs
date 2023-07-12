@@ -54,6 +54,12 @@ public class Define
         QuickHand,
         Probability,
     }
+
+    public enum CostType
+    {
+        Money,
+        Point,
+    }
     
     #region 플레이요소 개수
     public const int MAX_LOTTO_COUNT = 10;

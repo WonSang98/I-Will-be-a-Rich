@@ -41,18 +41,39 @@ public class Utils
         return null;
     }
 
-    public static void BuyItem(int cost, Action buyAction)
+    public static void BuyItem(int cost, Action buyAction, Define.CostType type = Define.CostType.Money)
     {
-        if(Managers.Game.Money >= cost)
+        switch(type)
         {
-            buyAction?.Invoke();
-            Managers.Game.SaveGame();
+            case Define.CostType.Money:
+                if (Managers.Game.Money >= cost)
+                {
+                    Managers.Game.Money -= cost;
+                    buyAction?.Invoke();
+                    Managers.Game.SaveGame();
+                }
+                else
+                {
+                    Debug.Log("Failed BuyItem");
+                    //TODO SHOW ALERT POPUP;
+                }
+                break;
+            case Define.CostType.Point:
+                if (Managers.Game.Point >= cost)
+                {
+                    Managers.Game.Point -= cost;
+                    buyAction?.Invoke();
+                    Managers.Game.SaveGame();
+                }
+                else
+                {
+                    Debug.Log("Failed BuyItem");
+                    //TODO SHOW ALERT POPUP;
+                }
+                break;
         }
-        else
-        {
-            Debug.Log("Failed BuyItem");
-            //TODO SHOW ALERT POPUP;
-        }
+
+
 
     }
 
