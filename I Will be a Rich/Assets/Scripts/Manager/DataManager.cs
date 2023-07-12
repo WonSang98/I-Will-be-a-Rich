@@ -15,12 +15,14 @@ public class DataManager
     public Dictionary<int, TextData> Texts { get; private set; }
     public Dictionary<int, StatData> Stats { get; private set; }
     public Dictionary<int, LottoData> Lottos { get; private set; }
+    public Dictionary<int, UpgradeData> Upgrades { get; private set; }
 
     public void Init()
     {
         Texts = LoadXml<TextDataLoader, int, TextData>("TextData").MakeDic();
         Stats = LoadXml<StatDataLoader, int, StatData>("StatData").MakeDic();
         Lottos = LoadXml<LottoDataLoader, int, LottoData>("LottoData").MakeDic();
+        Upgrades = LoadXml<UpgradeDataLoader, int, UpgradeData>("UpgradeData").MakeDic();
     }
 
     private Item LoadSingleXml<Item>(string name)

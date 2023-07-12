@@ -38,4 +38,13 @@
   <TextData ID="2100" kor="구매&lt;br&gt;(꾹 눌러 10개씩 구매)" eng="BUY&lt;br&gt;(Press Buy Per 10)" />
   <TextData ID="40000" kor="{userName} 계좌" eng="{userName}'s Account" />
   <TextData ID="40001" kor="잔고" eng="BALANCE" />
+  <TextData ID="3000" kor="상여금" eng="BONUS" />
+  <TextData ID="3001" kor="단골손님" eng="REGULAR CUSTOMER" />
+  <TextData ID="3002" kor="빠른 손놀림" eng="QUICK HAND" />
+  <TextData ID="3003" kor="운수좋은날" eng="LUCKY DAY" />
+  <TextData ID="3010" kor="일정 확률로 '일'해서 얻는 금액이 2배가 됩니다." eng="&quot;The amount of money you get from &quot;&quot;Work&quot;&quot; with a certain probability is doubled.&quot;" />
+  <TextData ID="3011" kor="복권을 구매하는 비용이 일부 감소합니다" eng="The cost of buying a lottery ticket decreases." />
+  <TextData ID="3012" kor="복권을 개봉하는 시간이 감소합니다." eng="Reduce time to release the lottery." />
+  <TextData ID="3013" kor="모든 복권의 당첨 확률이 상승합니다." eng="The probability of winning all lottery tickets increases." />
+  <TextData ID="3100" kor="업그레이드 : 레벨" eng="UPGRADE : LV" />
 </ArrayOfTextData>

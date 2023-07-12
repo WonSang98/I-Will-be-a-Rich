@@ -62,7 +62,7 @@ public class UI_Log : UI_Scene
 
     public void InterNewLog(LogInfo newData)
     {
-        if(_earningQueue.Count > (int)Texts.Log06_Text+1) _earningQueue.TryDequeue(out LogInfo tmp);
+        if(_earningQueue.Count > (int)Texts.Log06_Text) _earningQueue.TryDequeue(out LogInfo tmp);
         _earningQueue.Enqueue(newData);
         _earningAction?.Invoke();
     }

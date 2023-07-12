@@ -33,6 +33,7 @@ public class DataTransformer : EditorWindow
 		ParseTextData();
 		ParseLottoData();
 		ParseStatData();
+		ParseUpgradeData();
 	}
 
 
@@ -136,6 +137,41 @@ public class DataTransformer : EditorWindow
 
 		string xmlString = ToXML(new StatDataLoader() { _statData = statDatas });
 		File.WriteAllText($"{Application.dataPath}/Resources/Data/StatData.xml", xmlString);
+		AssetDatabase.Refresh();
+	}
+
+	static void ParseUpgradeData()
+	{
+		List<UpgradeData> upgradeData = new List<UpgradeData>();
+
+		#region ExcelData
+		string[] lines = Resources.Load<TextAsset>($"Data/Excel/UpgradeData").text.Split("\n");
+
+		// 첫번째 라인까지 스킵
+		for (int y = 2; y < lines.Length; y++)
+		{
+			string[] row = lines[y].Replace("\r", "").Split(',');
+			if (row.Length == 0)
+				continue;
+			if (string.IsNullOrEmpty(row[0]))
+				continue;
+
+			upgradeData.Add(new UpgradeData()
+			{
+				ID = int.Parse(row[0]),
+				type = (Upgrade)Upgrade.Parse(typeof(Upgrade), row[1]),
+				nameID = int.Parse(row[2]),
+				price = int.Parse(row[3]),
+				increasePrice = float.Parse(row[4]),
+				value = float.Parse(row[5]),
+				increaseValue = float.Parse(row[6]),
+				max = int.Parse(row[7]),
+			});
+		}
+		#endregion
+
+		string xmlString = ToXML(new UpgradeDataLoader() { _upgradeData = upgradeData });
+		File.WriteAllText($"{Application.dataPath}/Resources/Data/UpgradeData.xml", xmlString);
 		AssetDatabase.Refresh();
 	}
 

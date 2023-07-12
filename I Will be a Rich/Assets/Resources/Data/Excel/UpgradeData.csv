@@ -1,0 +1,6 @@
+﻿//업그레이드 데이터,//이름,//이름 아이디,//가격,//가격 상승률,//효과,//효과 상승률,최대레벨
+ID,type,nameID,price,increasePrice,value,increaseValue,max
+1,GoodWorker,30000,100,1.1,0.01,1,100
+2,Negotiation,30001,100,1.1,0.01,1,20
+3,QuickHand,30002,100,1.1,0.01,1,20
+4,Probability,30003,1000,2,0.01,1,10

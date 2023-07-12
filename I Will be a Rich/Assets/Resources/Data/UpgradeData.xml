@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStatData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UpgradeData ID="1" type="GoodWorker" nameID="30000" price="100" increasePrice="1.1" value="0.01" increaseValue="1" max="100" />
+  <UpgradeData ID="2" type="Negotiation" nameID="30001" price="100" increasePrice="1.1" value="0.01" increaseValue="1" max="20" />
+  <UpgradeData ID="3" type="QuickHand" nameID="30002" price="100" increasePrice="1.1" value="0.01" increaseValue="1" max="20" />
+  <UpgradeData ID="4" type="Probability" nameID="30003" price="1000" increasePrice="2" value="0.01" increaseValue="1" max="10" />
+</ArrayOfStatData>

@@ -47,6 +47,13 @@ public class Define
         lotto07
     }
 
+    public enum Upgrade
+    {
+        GoodWorker,
+        Negotiation,
+        QuickHand,
+        Probability,
+    }
     
     #region 플레이요소 개수
     public const int MAX_LOTTO_COUNT = 10;
@@ -74,5 +81,4 @@ public class Define
     public const int PRIZE4 = 1145060;//8133713;
     public const int PRIZE5 = 145060; //7952712;
     #endregion
-
 }

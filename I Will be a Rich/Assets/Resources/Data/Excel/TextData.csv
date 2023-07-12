@@ -37,3 +37,12 @@
 2100,구매<br>(꾹 눌러 10개씩 구매),BUY<br>(Press Buy Per 10)
 40000,{userName} 계좌,{userName}'s Account
 40001,잔고,BALANCE
+3000,상여금,BONUS
+3001,단골손님,REGULAR CUSTOMER
+3002,빠른 손놀림,QUICK HAND
+3003,운수좋은날,LUCKY DAY
+3010,일정 확률로 '일'해서 얻는 금액이 2배가 됩니다.,"The amount of money you get from ""Work"" with a certain probability is doubled."
+3011,복권을 구매하는 비용이 일부 감소합니다,The cost of buying a lottery ticket decreases.
+3012,복권을 개봉하는 시간이 감소합니다.,Reduce time to release the lottery.
+3013,모든 복권의 당첨 확률이 상승합니다.,The probability of winning all lottery tickets increases.
+3100,업그레이드 : 레벨,UPGRADE : LV
