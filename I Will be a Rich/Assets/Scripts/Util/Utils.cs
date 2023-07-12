@@ -41,4 +41,19 @@ public class Utils
         return null;
     }
 
+    public static void BuyItem(int cost, Action buyAction)
+    {
+        if(Managers.Game.Money >= cost)
+        {
+            buyAction?.Invoke();
+            Managers.Game.SaveGame();
+        }
+        else
+        {
+            Debug.Log("Failed BuyItem");
+            //TODO SHOW ALERT POPUP;
+        }
+
+    }
+
 }
